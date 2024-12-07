@@ -1,0 +1,6 @@
+Name PROJECT :  بزنس بلدي ,
+acc clerk : bego ,
+acc mongoDB : brgo ,
+mongoDB Info :mongodb+srv://shady:L7vSm5FEIrtD8UOT@cityworkers.zflqp.mongodb.net/?retryWrites=true&w=majority&appName=cityworkers
+ 
+	
