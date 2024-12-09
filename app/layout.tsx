@@ -8,6 +8,7 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import "./globals.css";
+import Navbar from '../components/Navbar'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,12 +35,7 @@ export default function RootLayout({
     <ClerkProvider>
     <html lang="en">
       <body>
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+        <Navbar/>
         {children}
       </body>
     </html>
