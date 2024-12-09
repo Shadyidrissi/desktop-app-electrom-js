@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ! Header */
+
 header{
   height: 7vh;
   background-color: rgba(175, 175, 175, 0.418);
@@ -33,3 +35,12 @@ header>div{
 header>div>a{
   font-weight: 800;
 }
+/* ! End Header */
+/* ! Profile  */
+.profile-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 93vh;
+}
+/* ! End Profile  */
