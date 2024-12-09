@@ -21,10 +21,10 @@ function Navbar() {
         <header>
             <a href='/'></a>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
+                <Link href=''>hello world </Link>
+                <Link href=''>hello 2</Link>
+                <Link href=''>hello 3</Link>
+                <Link href=''>hello 4</Link>
             </ul>
             <div>
                 {!isAuth ? (

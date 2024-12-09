@@ -16,7 +16,20 @@ header>ul{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 380px;
+  align-items: center;
+  font-weight: 700;
+  color: white;
+}
+header>ul>a{
+  border-radius: 7px;
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color:black;
+}
+header>ul>a:hover{
+  background-color: white;
+  color: black;
 }
 header>a{
   height: 50px;
