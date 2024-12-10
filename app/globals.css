@@ -4,7 +4,7 @@
 
 /* ! Header */
 
-header{
+header {
   height: 7vh;
   background-color: rgba(216, 216, 216, 0.253);
   display: flex;
@@ -12,7 +12,7 @@ header{
   padding: 0 20px;
   align-items: center;
 }
-header>ul{
+header > ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,36 +21,36 @@ header>ul{
   font-weight: 700;
   color: white;
 }
-header>ul>a{
+header > ul > a {
   border-radius: 7px;
   margin: 0 5px;
   padding: 5px 10px;
-  background-color:black;
+  background-color: black;
 }
-header>ul>a:hover{
+header > ul > a:hover {
   background-color: white;
   color: black;
 }
-header>a{
+header > a {
   height: 50px;
   width: 50px;
   background-color: black;
   border-radius: 20px;
   cursor: pointer;
 }
-header>div{
+header > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 190px;
   list-style: none;
 }
-header>div>a{
+header > div > a {
   font-weight: 800;
 }
 /* ! End Header */
 /* ! Profile  */
-.profile-page{
+.profile-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +58,7 @@ header>div>a{
 }
 /* ! End Profile  */
 /* !  Home */
-#lorem-become-bloger{
+#lorem-become-bloger {
   width: 98%;
   margin: 10px 1%;
   height: 50px;
@@ -68,11 +68,11 @@ header>div>a{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px ;
+  padding: 0 20px;
   font-size: 14px;
   font-weight: 600;
 }
-#lorem-become-bloger>button{
+#lorem-become-bloger > button {
   font-size: 15px;
   border: 1px solid black;
   /* background-color: black; */
@@ -80,15 +80,15 @@ header>div>a{
   padding: 5px 10px;
   border-radius: 15px;
 }
-#lorem-become-bloger>button:hover{
+#lorem-become-bloger > button:hover {
   background-color: white;
 }
-.home-page{
+.home-page {
   display: flex;
   justify-content: space-around;
-  margin: 20PX 0;
+  margin: 20px 0;
 }
-#posts{
+#posts {
   min-height: 800px;
   /* background-color: black; */
   width: 80%;
@@ -97,7 +97,7 @@ header>div>a{
   align-items: center;
   padding: 10px 0;
 }
-.card{
+.card {
   width: 600px;
   background-color: rgba(97, 99, 99, 0.082);
   min-height: 120px;
@@ -106,7 +106,7 @@ header>div>a{
   flex-direction: column;
   border-radius: 20px;
 }
-.header-card{
+.header-card {
   height: 50px;
   /* background-color: black; */
   width: 100%;
@@ -115,57 +115,130 @@ header>div>a{
   align-items: center;
   padding: 0 10px;
 }
-.header-card>li{
+.header-card > li {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   list-style: none;
 }
-.header-card>li>img{
-  height: 40px ;
+.header-card > li > img {
+  height: 40px;
   width: 40px;
   background-color: black;
   border-radius: 50%;
   margin: 0 10px 0 0;
 }
-.header-card>li>p:nth-child(2){
+.header-card > li > p:nth-child(2) {
   font-size: 16px;
   /* font-weight: 600; */
 }
-#time{
+#time {
   color: rgba(85, 82, 82, 0.479);
   font-weight: 600;
   font-size: 13px;
 }
-.text-card{
-  min-height:70px ;
+.text-card {
+  min-height: 70px;
   font-size: 22px;
   font-weight: 700;
   padding: 10px;
 }
 
-#search{
-  min-height: 300px;
+#search {
+  height: 750px;
   width: 300px;
   background-color: rgba(117, 126, 126, 0.082);
   border-radius: 20px;
 }
-#footer-card{
+#footer-card {
   height: 40px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-#footer-card>a{
+#footer-card > a {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
   font-weight: 600;
 }
-#footer-card>a:nth-child(3)>svg{
+#footer-card > a:nth-child(3) > svg {
   margin-top: 4px;
   margin-left: 5px;
   /* background-color: black; */
+}
+#header-search {
+  height: 40px;
+  width: 90%;
+  margin: 20px 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#input-search {
+  height: 35px;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+#icon-search {
+  list-style: none;
+  height: 35px;
+  width: 35px;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+#result-search {
+  margin: 10px;
+  height: 640px;
+  overflow-y: scroll;
+  scrollbar-color: black white;
+  scrollbar-width: thin;
+}
+#result-search::-webkit-scrollbar-track {
+  background: #f5f5f5; /* Track background */
+  border-radius: 8px;
+}
+
+#result-search::-webkit-scrollbar-thumb {
+  background-color: #000000; /* Scrollbar thumb color */
+  border-radius: 8px;
+  border: 2px solid #f5f5f5; /* Space between thumb and track */
+}
+#result-search > li {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 70px;
+  max-height: 200px;
+  background-color: white;
+  border-radius: 20px;
+  margin: 10px 8px 10px 0;
+}
+#profile-search {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: black;
+}
+#info-profile-search {
+  width: 145px;
+}
+#info-profile-search > h5 {
+  font-size: 18px;
+  font-weight: 600;
+}
+#info-profile-search > p {
+  font-size: 14px;
 }
 /* ! End Home  */
