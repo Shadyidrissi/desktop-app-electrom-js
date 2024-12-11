@@ -274,8 +274,10 @@ header > div > a {
 
 #data-posts-div{
   width: 15%;
-  height: 500px;
-  /* background-color: #000000; */
+  height: 300px;
+  background-color: #e0e0e070;
+  padding: 10px;
+  border-radius: 20px;
 }
 #data-posts-div>h3{
   font-size: 22px;
