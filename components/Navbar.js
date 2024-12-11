@@ -23,7 +23,7 @@ function Navbar() {
             <ul>
                 <Link href=''>categories </Link>
                 <Link href=''>Tendances</Link>
-                <Link href=''>My Posts</Link>
+                <Link href='/myPosts'>My Posts</Link>
                 <Link href=''>New Post</Link>
             </ul>
             <div>
