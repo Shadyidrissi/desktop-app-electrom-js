@@ -1,6 +1,19 @@
 import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema({
+  appliedForBlogger:{
+    type:Boolean,
+    default:false
+  },
+  isBlocked:{
+    type:Boolean,
+    default:false
+  }, 
+  role:{
+    type:String,
+    enum:['viewer','blogger','admin'],
+    default:'viewer'
+  },
   clerkId: {
     type: String,
     required: true,
