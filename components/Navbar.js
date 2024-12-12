@@ -21,7 +21,7 @@ function Navbar() {
         <header>
             <a href='/'></a>
             <ul>
-                <Link href=''>categories </Link>
+                <Link href='/categories'>categories </Link>
                 <Link href=''>Tendances</Link>
                 <Link href='/myPosts'>My Posts</Link>
                 <Link href=''>New Post</Link>
