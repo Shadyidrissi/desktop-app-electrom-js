@@ -1,19 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema({
-  appliedForBlogger:{
-    type:Boolean,
-    default:false
-  },
-  isBlocked:{
-    type:Boolean,
-    default:false
-  }, 
-  role:{
-    type:String,
-    enum:['viewer','blogger','admin'],
-    default:'viewer'
-  },
   clerkId: {
     type: String,
     required: true,
@@ -22,12 +9,11 @@ const UserSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
   },
-  username: {
-    type: String,
-    unique: true,
-  },
+  // username: {
+  //   type: String,
+  //   required: true,
+  // },
   photo: {
     type: String,
     required: true,
