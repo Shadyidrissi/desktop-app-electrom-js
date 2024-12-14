@@ -6,10 +6,22 @@ import { useEffect } from "react";
 
 // دالة لحساب التوقيع
 function generateSignature(secret, payload, timestamp) {
+  // Log all the parameters to see what is being passed
+  console.log("Generating signature with:", {
+    secret,
+    payload,
+    timestamp
+  });
+
   const message = `${timestamp}.${payload}`; // الصيغة التي يتم توقيعها
+  console.log("Message to sign:", message);
+
   const hmac = crypto.createHmac("sha256", secret);
   hmac.update(message);
-  return hmac.digest("hex");
+  const signature = hmac.digest("hex");
+
+
+  return signature;
 }
 
 export default function AfterLoginHandler() {
@@ -28,24 +40,33 @@ export default function AfterLoginHandler() {
             photo: user?.imageUrl,
           });
 
-          // const timestamp = Math.floor(Date.now() / 1000); // الوقت الحالي بصيغة Unix
-          // const secret = process.env.WEBHOOKS_SECRET; // المفتاح السري المخصص
-          // const signature = await generateSignature(secret, payload, timestamp);
+          // Log the payload and timestamp
+          const timestamp = Math.floor(Date.now() / 1000); // الوقت الحالي بصيغة Unix
+          console.log("Payload:", payload);
+          console.log("Timestamp:", timestamp);
+          // console.log("ENV:", process.env.WEBHOOKS_SECRET);
+
+          const secret = "whsec_s2AmRYnDDqDP7QMQaKovuXjcLfp6JXdx"; 
+
+          // Generate the signature
+          const signature = generateSignature(secret, payload, timestamp);
+
+          // Log the final signature
+          console.log("Signature generated:", signature);
 
           const response = await fetch("/api/webhooks/clerk", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              // تم تعليق رؤوس الـ headers لأنها ليست ضرورية الآن للاختبار
-              // "svix-id": "unique-request-id", // يمكنك استخدام مكتبة لإنشاء UUID
-              // "svix-timestamp": timestamp.toString(),
-              // "svix-signature": signature,
+              "svix-id": "unique-request-id", // Ensure you're generating a proper UUID or unique ID
+              "svix-timestamp": timestamp.toString(),
+              "svix-signature": signature,
             },
             body: payload,
           });
 
           const responseBody = await response.json();
-          // console.log(responseBody);
+          console.log("Response from server:", responseBody);
 
           if (!response.ok) {
             console.error("فشل في حفظ المستخدم في قاعدة البيانات:", responseBody);
