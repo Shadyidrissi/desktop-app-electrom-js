@@ -7,7 +7,7 @@ body{
   overflow-x: hidden;
 }
 header {
-  height: 7vh;
+  height: 60px;
   background-color: rgba(216, 216, 216, 0.253);
   display: flex;
   justify-content: space-between;

@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/action/user.action.js", "app/api/data/route.ts", "app/api/webhooks/clerk/route.js", "lib/db.js", "components/AfterLoginHandler.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/action/user.action.js", "app/api/data/route.ts", "app/api/webhooks/clerk/route.js", "lib/db.js", "components/AfterLoginHandler.js"],
   "exclude": ["node_modules"]
 }
