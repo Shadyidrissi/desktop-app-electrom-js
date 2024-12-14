@@ -28,7 +28,7 @@ export default function AfterLoginHandler() {
           setSecret(data.secret);
         }
       } catch (error) {
-        console.error("حدث خطأ أثناء جلب المتغير السري:", error);
+        console.error("ERROR", error);
       }
     };
   
@@ -49,12 +49,9 @@ export default function AfterLoginHandler() {
           });
 
           const timestamp = Math.floor(Date.now() / 1000); // الوقت الحالي بصيغة Unix
-          console.log("Payload:", payload);
-          console.log("Timestamp:", timestamp);
 
           const signature = generateSignature(secret, payload, timestamp);
 
-          console.log("Signature generated:", signature);
 
           const response = await fetch("/api/webhooks/clerk", {
             method: "POST",
@@ -68,15 +65,14 @@ export default function AfterLoginHandler() {
           });
 
           const responseBody = await response.json();
-          console.log("Response from server:", responseBody);
 
           if (!response.ok) {
-            console.error("فشل في حفظ المستخدم في قاعدة البيانات:", responseBody);
+            console.error("Error Save User", responseBody);
           } else {
-            console.log("تم حفظ المستخدم بنجاح:", responseBody);
+            console.log("User Save success", responseBody);
           }
         } catch (error) {
-          console.error("حدث خطأ أثناء حفظ المستخدم:", error);
+          console.error("Error Save User", error);
         }
       };
 

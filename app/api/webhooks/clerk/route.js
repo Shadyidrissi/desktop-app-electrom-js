@@ -15,8 +15,8 @@ export async function POST(req) {
     const body = await req.text();
 
     if (!body) {
-      console.error("الطلب فارغ");
-      return NextResponse.json({ message: "الطلب غير صالح" }, { status: 400 });
+      console.error("");
+      return NextResponse.json({ message: "Error Data" }, { status: 400 });
     }
 
     // Log headers to check if they are present
@@ -27,13 +27,13 @@ export async function POST(req) {
     console.log("Received headers:", { svixId, svixTimestamp, svixSignature });
 
     if (!svixId || !svixTimestamp || !svixSignature) {
-      return NextResponse.json({ message: "بيانات الرأس غير مكتملة" }, { status: 400 });
+      return NextResponse.json({ message: " You Need to Login First " }, { status: 400 });
     }
 
     const WEBHOOK_SECRET = process.env.WEBHOOKS_SECRET;
     if (!WEBHOOK_SECRET) {
-      console.error("مفتاح ويب هوك مفقود");
-      return NextResponse.json({ message: "مفتاح ويب هوك مفقود" }, { status: 400 });
+      console.error("need to login first");
+      return NextResponse.json({ message: "login first" }, { status: 400 });
     }
 
     // Log the message being signed
@@ -42,8 +42,8 @@ export async function POST(req) {
 
     // التحقق من صحة التوقيع
     if (svixSignature !== expectedSignature) {
-      console.error("التوقيع غير صحيح");
-      return NextResponse.json({ message: "فشل التحقق من صحة التوقيع" }, { status: 400 });
+      console.error("You not Auth to login");
+      return NextResponse.json({ message: "You not Auth to login" }, { status: 400 });
     }
 
     const parsedBody = JSON.parse(body); // تحليل نص الطلب إلى JSON
@@ -52,9 +52,9 @@ export async function POST(req) {
     const newUser = await createUser(parsedBody); // حفظ المستخدم في قاعدة البيانات
     console.log("User created successfully:", newUser);
 
-    return NextResponse.json({ message: "تم حفظ المستخدم بنجاح", user: newUser });
+    return NextResponse.json({ message: "User save success", user: newUser });
   } catch (error) {
     console.error("Unexpected error occurred:", error);
-    return NextResponse.json({ message: "خطأ داخلي في الخادم", error: error.message }, { status: 500 });
+    return NextResponse.json({ message: "  Server  ERROR ", error: error.message }, { status: 500 });
   }
 }
