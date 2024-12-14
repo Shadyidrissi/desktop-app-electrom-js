@@ -1,16 +1,20 @@
-import User from "../../../lib/modules/user.module";  // Assuming User model exists
+// pages/api/getUser.js
+import { connect } from "../../lib/db";
+import User from "../../lib/modules/user.module";
 
-export async function GET(req) {
+export default async function handler(req, res) {
   try {
-    const users = await User.find();
-    return new Response(
-      JSON.stringify(users),
-      { status: 200 }
-    );
+    await connect(); // Ensure your database connection is established
+    const { clerkId } = req.query; // Retrieve clerkId from the request
+    const user = await User.findOne({ clerkId });
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    return res.status(200).json({ user });
   } catch (error) {
-    return new Response(
-      JSON.stringify({ error: "Failed to fetch users" }),
-      { status: 500 }
-    );
+    console.error("Error fetching user:", error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 }
